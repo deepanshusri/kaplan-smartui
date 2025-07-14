@@ -24,14 +24,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      # - name: Install LambdaTest SmartUI CLI
-      #   run: yarn add global @lambdatest/smartui-storybook
+      - name: Install LambdaTest SmartUI CLI
+        run: yarn add global @lambdatest/smartui-storybook
 
-      # - name: Build Storybook
-      #   run: yarn bsb      
+      - name: Build Storybook
+        run: yarn bsb      
 
-      # - name: Set Project Token
-      #   run: echo "PROJECT_TOKEN=${{ secrets.LT_SUI_POC }}" >> $GITHUB_ENV
+      - name: Set Project Token
+        run: echo "PROJECT_TOKEN=${{ secrets.LT_SUI_POC }}" >> $GITHUB_ENV
 
       - name: Run SmartUI Tests        
         run: yarn sui
