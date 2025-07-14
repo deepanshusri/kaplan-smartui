@@ -1,0 +1,37 @@
+name: LambdaTest Smart UI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'components/**'
+
+jobs:
+  smart-ui-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      # - name: Install LambdaTest SmartUI CLI
+      #   run: yarn add global @lambdatest/smartui-storybook
+
+      # - name: Build Storybook
+      #   run: yarn bsb      
+
+      # - name: Set Project Token
+      #   run: echo "PROJECT_TOKEN=${{ secrets.LT_SUI_POC }}" >> $GITHUB_ENV
+
+      - name: Run SmartUI Tests        
+        run: yarn sui
