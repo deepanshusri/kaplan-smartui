@@ -1,4 +1,4 @@
-name: LambdaTest Smart UI
+name: LambdaTest Smart ui
 
 on:
   workflow_dispatch:
